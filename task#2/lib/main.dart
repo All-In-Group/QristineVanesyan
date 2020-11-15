@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(
     MaterialApp(
-      title: "hello world",
+      title: "firstTask",
       home: Scaffold(
           appBar: AppBar(
             leading: new Padding(
