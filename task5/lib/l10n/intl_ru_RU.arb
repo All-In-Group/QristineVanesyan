@@ -1,0 +1,38 @@
+{
+  "@@locale": "ru_RU",
+  "appTitle": "хукх,кйк,й,",
+  "welcome": "Добро пожаловать,",
+  "continue1": "войдите чтобы продолжить",
+  "email": "Эл. адрес или имя пользователя",
+  "password": "Пароль",
+  "forgot": "Забыли пароль ?",
+  "signin": "Войти",
+  "google": "Войти через Google",
+  "facebook": "Войти через Facebook",
+  "github": "Войти через Github",
+  "linkedin": "Войти через LinkedIn",
+  "account": "Нет учетной записи?",
+  "signup": "Зарегистрируйтесь сейчас!",
+
+  "Interest": "Интересы",
+  "TodoDone": "Сделать/сделано",
+  "OfflineArticles": "Статьи офлайн",
+  "RateUs": "Оцените нас",
+  "Support": "Поддержка",
+  "Settings": "Настройки",
+  "LogOut": "Выход",
+
+  "Home":"Дом",
+
+  "Topics": "Статьи",
+  "Quiz": "Викторина",
+
+  "Feed": "Новости",
+  "Recent": "Частые",
+
+  "Popular":"Популярные",
+  "All": "Все",
+  "Interview":"Интервью",
+
+  "Question": "Вопрос"
+}
