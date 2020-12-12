@@ -47,7 +47,7 @@ class MyHomePage extends StatefulWidget {
 
 Future<FirstModel> FirstModel1(String login, String password) async {
   final String apiUrl = "https://reqres.in/api/users";
-
+ /* final String apiUrl = "https://api.allin.am/kasir/coupon";*/
   final response =
       await http.post(apiUrl, body: {"login": login, "password": password});
 
@@ -62,6 +62,7 @@ Future<FirstModel> FirstModel1(String login, String password) async {
 
 Future<SecondModel> SecondModel1(String country, String city) async {
   final String apiUrl = "https://reqres.in/api/users";
+/*  final String apiUrl = "https://api.allin.am/kasir/bonus";*/
 
   final response =
       await http.post(apiUrl, body: {"country": country, "city": city});
@@ -77,6 +78,7 @@ Future<SecondModel> SecondModel1(String country, String city) async {
 
 Future<ThirdModel> ThirdModel1(String fname, String lname) async {
   final String apiUrl = "https://reqres.in/api/users";
+/*  final String apiUrl = "https://api.allin.am/kasir/purchase";*/
 
   final response =
       await http.post(apiUrl, body: {"fname": fname, "lname": lname});
