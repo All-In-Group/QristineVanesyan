@@ -12,7 +12,7 @@ class ThirdModel {
   ThirdModel({
     this.fname,
     this.lname,
-  });
+  });git 
 
   factory ThirdModel.fromJson(Map<String, dynamic> json) => ThirdModel(
     fname: json["fname"],

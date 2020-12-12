@@ -2,7 +2,6 @@ import 'package:barcode_scan/barcode_scan.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:logger/logger.dart';
-import 'package:task6/main.dart';
 import 'package:task6/page_for_buttons.dart';
 import 'logger.dart';
 
