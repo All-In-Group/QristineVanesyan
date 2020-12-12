@@ -12,7 +12,7 @@ class QrCodeScan extends StatefulWidget {
 
 class _QrCodeScanState extends State<QrCodeScan> {
   Logger log = getLogger("QrCodeScan");
-  String result = "Waiting QR Scan Text";
+  String result = "";
 
   Future _scanQR() async {
     try {
@@ -45,44 +45,52 @@ class _QrCodeScanState extends State<QrCodeScan> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: _scanQR,
-        label: Text("Scan"),
-        icon: Icon(Icons.camera_alt),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       appBar: AppBar(
-        title: Text("Qr Scan Code"),
+        title: Text("My App"),
       ),
       body: Center(
           child: Column(
-            children: [
-              const SizedBox(height: 30),
-        RaisedButton(
-          onPressed: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => ButtonPage()));
-          },
-          textColor: Colors.white,
-          padding: const EdgeInsets.all(0.0),
-          child: Container(
-            color: Colors.blue,
-            padding: const EdgeInsets.all(10.0),
-            child:
-            const Text('Go to button page', style: TextStyle(fontSize: 20)),
+        children: [
+          const SizedBox(height: 30),
+          RaisedButton(
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ButtonPage()));
+            },
+            textColor: Colors.white,
+            padding: const EdgeInsets.all(0.0),
+            child: Container(
+              color: Colors.blue,
+              padding: const EdgeInsets.all(10.0),
+              child: const Text('Go to button page',
+                  style: TextStyle(fontSize: 20)),
+            ),
           ),
-        ),
-              Text(
-        result,
-        style: TextStyle(
-              fontSize: 30.0,
-              fontWeight: FontWeight.bold,
-        ),
-      ),
-            ],
-          )),
+          const SizedBox(height: 30),
+          RaisedButton(
+            onPressed: _scanQR,
+            textColor: Colors.white,
+            padding: const EdgeInsets.all(0.0),
+            child: Container(
+              color: Colors.blue,
+              padding: const EdgeInsets.all(10.0),
+              child: const Text('Scan Page', style: TextStyle(fontSize: 20)),
+            ),
+          ),
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 108.0),
+              child: Text(
+                result,
+                style: TextStyle(
+                  fontSize: 30.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ),
+        ],
+      )),
     );
   }
 }

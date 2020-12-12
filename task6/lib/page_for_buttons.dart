@@ -23,11 +23,9 @@ final TextEditingController cityController = TextEditingController();
 final TextEditingController fnameController = TextEditingController();
 final TextEditingController lnameController = TextEditingController();
 
-
 class ButtonPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -51,7 +49,7 @@ Future<FirstModel> FirstModel1(String login, String password) async {
   final String apiUrl = "https://reqres.in/api/users";
 
   final response =
-  await http.post(apiUrl, body: {"login": login, "password": password});
+      await http.post(apiUrl, body: {"login": login, "password": password});
 
   if (response.statusCode == 201) {
     final String responseString = response.body;
@@ -66,7 +64,7 @@ Future<SecondModel> SecondModel1(String country, String city) async {
   final String apiUrl = "https://reqres.in/api/users";
 
   final response =
-  await http.post(apiUrl, body: {"country": country, "city": city});
+      await http.post(apiUrl, body: {"country": country, "city": city});
 
   if (response.statusCode == 201) {
     final String responseString = response.body;
@@ -81,7 +79,7 @@ Future<ThirdModel> ThirdModel1(String fname, String lname) async {
   final String apiUrl = "https://reqres.in/api/users";
 
   final response =
-  await http.post(apiUrl, body: {"fname": fname, "lname": lname});
+      await http.post(apiUrl, body: {"fname": fname, "lname": lname});
 
   if (response.statusCode == 201) {
     final String responseString = response.body;
@@ -99,6 +97,7 @@ class _MyHomePageState extends State<MyHomePage> {
   initState() {
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -156,8 +155,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 MaterialPageRoute(
                     builder: (context) => LoginPasswordPage(
                         info: model1.toJson().toString() + ""
-                      //"The model1 with login: ${_model1.login}, password: ${_model1.password} is created successfully!"
-                    )));
+                        )));
             setState(() {
               _model1 = model1;
             });
@@ -168,8 +166,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 MaterialPageRoute(
                     builder: (context) => CountyCityPage(
                         info: model2.toJson().toString() + ""
-                      //"The model1 with login: ${_model1.login}, password: ${_model1.password} is created successfully!"
-                    )));
+                        )));
             setState(() {
               _model2 = model2;
             });
@@ -180,14 +177,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 MaterialPageRoute(
                     builder: (context) => FnameLnamePage(
                         info: model3.toJson().toString() + ""
-                      //"The model1 with login: ${_model1.login}, password: ${_model1.password} is created successfully!"
-                    )));
+                        )));
             setState(() {
               _model3 = model3;
-            });  }
-
+            });
+          }
         },
-        tooltip: 'Increment',
+        tooltip: 'send post request',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
@@ -210,13 +206,22 @@ class _FirstButtonState extends State<FirstButton> {
       children: [
         Center(
           child: FlatButton(
+              color: Colors.blue,
+              textColor: Colors.white,
+              padding: EdgeInsets.all(8.0),
+              splashColor: Colors.blueAccent,
               onPressed: () {
                 setState(() {
                   shouldDisplay = !shouldDisplay;
                 });
               },
               child: shouldDisplay
-                  ? Fields(title1:"input login",controller1: loginController,title2:"input password",controller2: passwordController,)
+                  ? Fields(
+                      title1: "input login",
+                      controller1: loginController,
+                      title2: "input password",
+                      controller2: passwordController,
+                    )
                   : Text('Open login password text fields')),
         ),
       ],
@@ -240,13 +245,21 @@ class _SecondButtonState extends State<SecondButton> {
       children: [
         Center(
           child: FlatButton(
+              color: Colors.blue,
+              textColor: Colors.white,
+              padding: EdgeInsets.all(8.0),
+              splashColor: Colors.blueAccent,
               onPressed: () {
                 setState(() {
                   shouldDisplay = !shouldDisplay;
                 });
               },
               child: shouldDisplay
-                  ? Fields(title1:"input country",controller1:countryController,title2:"input city",controller2: cityController)
+                  ? Fields(
+                      title1: "input country",
+                      controller1: countryController,
+                      title2: "input city",
+                      controller2: cityController)
                   : Text('Open country city text fields')),
         ),
       ],
@@ -270,13 +283,21 @@ class _ThirdButtonState extends State<ThirdButton> {
       children: [
         Center(
           child: FlatButton(
+              color: Colors.blue,
+              textColor: Colors.white,
+              padding: EdgeInsets.all(8.0),
+              splashColor: Colors.blueAccent,
               onPressed: () {
                 setState(() {
                   shouldDisplay = !shouldDisplay;
                 });
               },
               child: shouldDisplay
-                  ? Fields(title1:"input first name",controller1:fnameController,title2:"input last name",controller2: lnameController)
+                  ? Fields(
+                      title1: "input first name",
+                      controller1: fnameController,
+                      title2: "input last name",
+                      controller2: lnameController)
                   : Text('Open first name city last name fields')),
         ),
       ],
@@ -285,14 +306,12 @@ class _ThirdButtonState extends State<ThirdButton> {
 }
 
 class Fields extends StatelessWidget {
-
   Fields({
     Key key,
     this.title1,
     this.controller1,
     this.title2,
     this.controller2,
-
   }) : super(key: key);
 
   final TextEditingController controller1;
@@ -305,22 +324,16 @@ class Fields extends StatelessWidget {
     return Column(children: <Widget>[
       TextField(
         decoration: InputDecoration(
-          
-            hintText: title1,
+          hintText: title1,
         ),
         controller: controller1,
       ),
       TextField(
         decoration: InputDecoration(
-          
-            hintText: title2,
+          hintText: title2,
         ),
         controller: controller2,
       ),
     ]);
   }
 }
-
-
-
-
