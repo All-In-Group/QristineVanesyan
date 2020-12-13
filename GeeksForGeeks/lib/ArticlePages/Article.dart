@@ -1,29 +1,14 @@
+import 'dart:ui';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:task5/home/tags.dart';
 
-
-class Articles extends StatelessWidget {
-  // This widget is the root
-  // of your application.
+class Articles extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Feed Articles',
-      theme: ThemeData(
-        primarySwatch: Colors.green,
-      ),
-      debugShowCheckedModeBanner: false,
-      home: MyHomePage(),
-    );
-  }
+  _FeedPageState createState() => _FeedPageState();
 }
 
-class MyHomePage extends StatefulWidget {
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
+class _FeedPageState extends State<Articles> {
   PageController controller = PageController();
   List<Widget> _list = <Widget>[
     new Pages(),
@@ -44,9 +29,12 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         backgroundColor: Colors.white,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_sharp,color: Colors.black,),
+          icon: Icon(
+            Icons.arrow_back_sharp,
+            color: Colors.black,
+          ),
           onPressed: () {
-            Navigator.pop(context);
+            Navigator.of(context).pop();
           },
         ),
       ),
@@ -63,6 +51,86 @@ class _MyHomePageState extends State<MyHomePage> {
           });
         },
       ),
+    );
+  }
+}
+
+class CustomListItem1 extends StatelessWidget {
+  const CustomListItem1({
+    this.title,
+    this.user,
+  });
+
+  final String title;
+  final String user;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.fromLTRB(15, 10, 15, 10),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Expanded(
+            child: _Article12222(
+              title: title,
+              user: user,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _Article12222 extends StatelessWidget {
+  const _Article12222({
+    Key key,
+    this.title,
+    this.user,
+  }) : super(key: key);
+
+  final String title;
+  final String user;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(
+          title,
+          style: const TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 18.0,
+          ),
+        ),
+        const Padding(padding: EdgeInsets.symmetric(vertical: 2.0)),
+        Text(
+          user,
+          style: const TextStyle(fontSize: 16.0, color: Colors.grey),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: [
+                  TagIcon(title: "Dart"),
+                  TagIcon(title: "Flutter"),
+                  TagIcon(title: "Advanced Data Structure"),
+                ],
+              ),
+              Icon(
+                Icons.more_vert,
+                color: Colors.grey,
+                size: 20.0,
+              ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }
@@ -84,7 +152,7 @@ class Pages extends StatelessWidget {
                 ),
                 new Italic(
                     text:
-                    "After hustling with the source codes, databases, APIs, or other related stuff the entire week - wouldn't it be great to get yourself refreshed and delighted over the weekend"
+                        "After hustling with the source codes, databases, APIs, or other related stuff the entire week - wouldn't it be great to get yourself refreshed and delighted over the weekend"
                         " by watching some interesting web shows? (Sounds exciting, right?)"),
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 40),
@@ -92,27 +160,26 @@ class Pages extends StatelessWidget {
                 ),
                 new Text(
                     "And fortunately, there have been numerous web shows available for all the geeks out there. However, there is an issue with every tech enthusiast that they are quite fastidious - not only with the tech "
-                        "stack or other tools & technologies that they use but even when they need to pick out a movie or web show for themselves to watch. They're often "
-                        "like to get entertained with intellectual and technology-focused content.",
+                    "stack or other tools & technologies that they use but even when they need to pick out a movie or web show for themselves to watch. They're often "
+                    "like to get entertained with intellectual and technology-focused content.",
                     style: TextStyle(
                       fontSize: 18,
                     ),
                     textAlign: TextAlign.left),
                 TextWithPadding(
                     text:
-                    "Here, in this article, we've compiled a list of 7 must-watch web shows having the tech-focused content that'll surely give chills to all the techies: "),
+                        "Here, in this article, we've compiled a list of 7 must-watch web shows having the tech-focused content that'll surely give chills to all the techies: "),
                 Titles(
                   text: "1. The IT Crowd",
                   size: 20,
                 ),
-
                 RichText(
                   text: TextSpan(
                     style: DefaultTextStyle.of(context).style,
                     children: <TextSpan>[
                       TextSpan(
                         text:
-                        "Do you want to witness the adventurous environment of a tech company with"
+                            "Do you want to witness the adventurous environment of a tech company with"
                             " some tensed as well as funny situations b/w tech and non-tech professionals…??",
                         style: TextStyle(
                           fontStyle: FontStyle.italic,
@@ -121,7 +188,7 @@ class Pages extends StatelessWidget {
                       ),
                       TextSpan(
                         text:
-                        "If yes, then 'The IT Crowd' is meant for you! The story of this show revolves around three individuals in "
+                            "If yes, then 'The IT Crowd' is meant for you! The story of this show revolves around three individuals in "
                             "the Information Technology (IT) department working in the basement of a fictional company Reynholm Industries. "
                             "When two of them are quite genius (though socially awkward), one of the three is the manager and yes, she doesn't"
                             " know anything about tech. In this show, you'll find various moments and situations true to real-life aspects along"
@@ -165,10 +232,9 @@ class Pages extends StatelessWidget {
                     ),
                   ]),
                 ),
-
                 new TextWithPadding(
                   text:
-                  "The show is not meant for those who are not interested in"
+                      "The show is not meant for those who are not interested in"
                       " technology as many of the jokes are tech-related which they"
                       " won't be able to understand, it is particularly meant for all "
                       "the tech enthusiasts. And you can watch all the episodes of "
@@ -180,7 +246,7 @@ class Pages extends StatelessWidget {
                     children: <TextSpan>[
                       TextSpan(
                         text:
-                        "As a bonus, let us tell you a few more web shows that can also be taken into consideration -",
+                            "As a bonus, let us tell you a few more web shows that can also be taken into consideration -",
                         style: TextStyle(
                           fontSize: 18,
                         ),
@@ -209,7 +275,7 @@ class Pages extends StatelessWidget {
                       ),
                       TextSpan(
                         text:
-                        ". And yes, a list of web shows for geeks can't be completed without mentioning this cult classic, ",
+                            ". And yes, a list of web shows for geeks can't be completed without mentioning this cult classic, ",
                         style: TextStyle(
                           fontSize: 18,
                         ),
@@ -223,12 +289,12 @@ class Pages extends StatelessWidget {
                       ),
                       TextSpan(
                         text:
-                        "So, if you're in a search of a web show based on tech-related content for the upcoming weekend to get refreshed and enlightened - ",
+                            "So, if you're in a search of a web show based on tech-related content for the upcoming weekend to get refreshed and enlightened - ",
                         style: TextStyle(fontSize: 18),
                       ),
                       TextSpan(
                         text:
-                        "take a look at the above-mentioned list and pick out the one as per your interest!!",
+                            "take a look at the above-mentioned list and pick out the one as per your interest!!",
                         style: TextStyle(
                           fontStyle: FontStyle.italic,
                           fontSize: 18,
@@ -273,12 +339,12 @@ class Pages extends StatelessWidget {
                           ),
                           InkWell(
                               child: Text(
-                                "contributed articles.",
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  decoration: TextDecoration.underline,
-                                ),
-                              )),
+                            "contributed articles.",
+                            style: TextStyle(
+                              fontSize: 18,
+                              decoration: TextDecoration.underline,
+                            ),
+                          )),
                         ],
                       ),
                     ],
@@ -290,8 +356,9 @@ class Pages extends StatelessWidget {
                 ImageCustom(img: "assets/images/Ads.PNG"),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 10.0),
-                  child: InkWell(child:
-                  Text( "Get Enrolled to DSA Course",
+                  child: InkWell(
+                      child: Text(
+                    "Get Enrolled to DSA Course",
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.w600,
@@ -302,28 +369,36 @@ class Pages extends StatelessWidget {
                 ),
                 hr(),
                 Card(
-                  child: CustomListItem( user:
-                  'Lorem Ipsum is simply dummy text of the printing and typesetting industry. '
-                      'Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
-                    title: 'The Flutter YouTube Channel',),
+                  child: CustomListItem1(
+                    user:
+                        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. '
+                        'Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
+                    title: 'The Flutter YouTube Channel',
+                  ),
                 ),
                 Card(
-                  child: CustomListItem( user:
-                  'Lorem Ipsum is simply dummy text of the printing and typesetting industry. '
-                      'Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
-                    title: 'The Flutter YouTube Channel',),
+                  child: CustomListItem1(
+                    user:
+                        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. '
+                        'Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
+                    title: 'The Flutter YouTube Channel',
+                  ),
                 ),
                 Card(
-                  child: CustomListItem( user:
-                  'Lorem Ipsum is simply dummy text of the printing and typesetting industry. '
-                      'Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
-                    title: 'The Flutter YouTube Channel',),
+                  child: CustomListItem1(
+                    user:
+                        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. '
+                        'Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
+                    title: 'The Flutter YouTube Channel',
+                  ),
                 ),
                 Card(
-                  child: CustomListItem( user:
-                  'Lorem Ipsum is simply dummy text of the printing and typesetting industry. '
-                      'Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
-                    title: 'The Flutter YouTube Channel',),
+                  child: CustomListItem1(
+                    user:
+                        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. '
+                        'Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
+                    title: 'The Flutter YouTube Channel',
+                  ),
                 ),
               ],
             )));
@@ -365,7 +440,7 @@ class Titles extends StatelessWidget {
     );
   }
 
-/// textAlign: TextAlign.left
+  /// textAlign: TextAlign.left
 }
 
 class TextWithPadding extends StatelessWidget {
@@ -390,7 +465,7 @@ class TextWithPadding extends StatelessWidget {
     );
   }
 
-/// textAlign: TextAlign.left
+  /// textAlign: TextAlign.left
 }
 
 class UnorderedList extends StatelessWidget {
@@ -439,6 +514,7 @@ class ImageCustom extends StatelessWidget {
     );
   }
 }
+
 class hr extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -448,68 +524,6 @@ class hr extends StatelessWidget {
       thickness: 1,
       indent: 0,
       endIndent: 0,
-    );
-  }
-}
-
-class CustomListItem extends StatelessWidget {
-  const CustomListItem({
-    this.title,
-    this.user,
-
-  });
-
-  final String title;
-  final String user;
-
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.fromLTRB(15, 10, 15, 10),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Expanded(
-            child: _Article(
-              title: title,
-              user: user,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _Article extends StatelessWidget {
-  const _Article({
-    Key key,
-    this.title,
-    this.user,
-  }) : super(key: key);
-
-  final String title;
-  final String user;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Text(
-          title,
-          style: const TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 18.0,
-          ),
-        ),
-        const Padding(padding: EdgeInsets.symmetric(vertical: 2.0)),
-        Text(
-          user,
-          style: const TextStyle(fontSize: 16.0, color: Colors.grey),
-        ),
-      ],
     );
   }
 }

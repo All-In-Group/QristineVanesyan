@@ -1,23 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:task5/AppDrawer.dart';
 import 'package:task5/home/feed.dart';
 import 'package:task5/quiz/quiz.dart';
 import 'package:task5/topics/all.dart';
 import 'package:task5/topics/interview.dart';
 import 'package:task5/topics/popular.dart';
+import 'generated/l10n.dart';
 
-
-void main() => runApp(MyApp());
 const String _title = 'GeeksforGeeks';
-List<String> menu = [
-  "Interest",
-  "Todo/Done",
-  "Offline Articles",
-  "Rate us",
-  "Support",
-  "Settings",
-  "Log-out"
-];
+
 List<IconData> menuIcon = [
   Icons.calendar_today,
   Icons.timer,
@@ -28,18 +20,28 @@ List<IconData> menuIcon = [
   Icons.logout
 ];
 
-class MyApp extends StatelessWidget {
+class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      color: Colors.grey,
-      title: _title,
-      theme: ThemeData(
-        primaryColor: Colors
-            .green[600], //Changing this will change the color of the TabBar
-      ),
-      home: MyStatefulWidget(),
-    );
+        localizationsDelegates: [
+          S.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+        ],
+        supportedLocales: [
+          const Locale('ru', 'RU')
+        ],
+        color: Colors.grey,
+        title: _title,
+        theme: ThemeData(
+          primaryColor: Colors.green[600],
+          visualDensity: VisualDensity
+              .adaptivePlatformDensity, //Changing this will change the color of the TabBar
+        ),
+        home: Builder(builder: (context) {
+          return MyStatefulWidget();
+        }));
   }
 }
 
@@ -74,31 +76,27 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget>
       children: <Widget>[
         Card(
           child: ExpansionTile(
-            title:  CustomListItemTwo(
+            title: CustomListItemTwo(
               title: 'Aptitude',
-              subtitle:'Quiz Count :5',
+              subtitle: 'Quiz Count :5',
               author: 'Questions :90',
-
             ),
             children: <Widget>[
               Card(
                 child: Padding(
-                  padding: const EdgeInsets.only(left:30.0),
+                  padding: const EdgeInsets.only(left: 30.0),
                   child: CustomListItemTwo1(
                     title: 'Aptitude',
-                    subtitle:'Quiz Count :5',
-
-
+                    subtitle: 'Quiz Count :5',
                   ),
                 ),
-              ),    Card(
+              ),
+              Card(
                 child: Padding(
-                  padding: const EdgeInsets.only(left:30.0),
+                  padding: const EdgeInsets.only(left: 30.0),
                   child: CustomListItemTwo1(
                     title: 'Aptitude',
-                    subtitle:'Quiz Count :5',
-
-
+                    subtitle: 'Quiz Count :5',
                   ),
                 ),
               ),
@@ -109,51 +107,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget>
       ],
     )
   ];
-  static const List _widgetOptionsAppBar = [
-    TabBar(
-      unselectedLabelColor: Colors.white54,
-      labelColor: Colors.white,
-      indicatorWeight: 2,
-      indicatorColor: Colors.white,
-      tabs: [
-        Tab(
-          child: Text(
-            "FEED",
-          ),
-        ),
-        Tab(
-          child: Text(
-            "RECENT",
-          ),
-        ),
-      ],
-    ),
-    TabBar(
-      unselectedLabelColor: Colors.white54,
-      labelColor: Colors.white,
-      indicatorWeight: 2,
-      indicatorColor: Colors.white,
-      tabs: [
-        Tab(
-          child: Text(
-            "POPULAR",
-          ),
-        ),
-        Tab(
-          child: Text(
-            "INTERVIEW",
-          ),
-        ),
-        Tab(
-          child: Text(
-            "ALL",
-          ),
-        ),
-      ],
-    ),
-    Text("data"),
-    //  PreferredSize(child: null, preferredSize: null)
-  ];
+
   static const List _widgetOptionsLength = [2, 3, 0];
 
   void _onItemTapped(int index) {
@@ -164,6 +118,51 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget>
 
   @override
   Widget build(BuildContext context) {
+    final delegate = S.of(context);
+    final List _widgetOptionsAppBar = [
+      TabBar(
+        unselectedLabelColor: Colors.white54,
+        labelColor: Colors.white,
+        indicatorWeight: 2,
+        indicatorColor: Colors.white,
+        tabs: [
+          Tab(
+            child: Text(
+              delegate.Feed,
+            ),
+          ),
+          Tab(
+            child: Text(
+              delegate.Recent,
+            ),
+          ),
+        ],
+      ),
+      TabBar(
+        unselectedLabelColor: Colors.white54,
+        labelColor: Colors.white,
+        indicatorWeight: 2,
+        indicatorColor: Colors.white,
+        tabs: [
+          Tab(
+            child: Text(
+              delegate.Popular,
+            ),
+          ),
+          Tab(
+            child: Text(
+              delegate.Interview,
+            ),
+          ),
+          Tab(
+            child: Text(
+              delegate.All,
+            ),
+          ),
+        ],
+      ),
+      Text("data"),
+    ];
     return DefaultTabController(
         length: _widgetOptionsLength.elementAt(_selectedIndex),
         child: Scaffold(
@@ -180,19 +179,19 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget>
             child: _widgetOptions.elementAt(_selectedIndex), //2
           ),
           bottomNavigationBar: BottomNavigationBar(
-            items: const <BottomNavigationBarItem>[
+            items: <BottomNavigationBarItem>[
               BottomNavigationBarItem(
                 icon: Icon(Icons.home),
-                label: 'Home',
+                label: delegate.Home,
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.menu_book),
-                label: 'Topics',
-              ),
+                  icon: Icon(Icons.menu_book),
+                  label: delegate.Topics //S.of(context).Topics,
+                  ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.question_answer_outlined),
-                label: 'Quiz',
-              ),
+                  icon: Icon(Icons.question_answer_outlined),
+                  label: delegate.Quiz //S.of(context).Quiz,
+                  ),
             ],
             currentIndex: _selectedIndex,
             selectedItemColor: Colors.green[600],
@@ -203,20 +202,15 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget>
   }
 }
 
-
 class CustomListItemTwo1 extends StatelessWidget {
   CustomListItemTwo1({
     Key key,
     this.title,
     this.subtitle,
-
-
   }) : super(key: key);
 
   final String title;
   final String subtitle;
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -230,29 +224,25 @@ class CustomListItemTwo1 extends StatelessWidget {
             _ArticleDescription1(
               title: title,
               subtitle: subtitle,
-
-
             ),
-
           ],
         ),
       ),
     );
   }
 }
+
 class CustomListItemTwo extends StatelessWidget {
   CustomListItemTwo({
     Key key,
     this.title,
     this.subtitle,
     this.author,
-
   }) : super(key: key);
 
   final String title;
   final String subtitle;
   final String author;
-
 
   @override
   Widget build(BuildContext context) {
@@ -267,9 +257,7 @@ class CustomListItemTwo extends StatelessWidget {
               title: title,
               subtitle: subtitle,
               author: author,
-
             ),
-
           ],
         ),
       ),
@@ -283,13 +271,11 @@ class _ArticleDescription extends StatelessWidget {
     this.title,
     this.subtitle,
     this.author,
-
   }) : super(key: key);
 
   final String title;
   final String subtitle;
   final String author;
-
 
   @override
   Widget build(BuildContext context) {
@@ -317,7 +303,6 @@ class _ArticleDescription extends StatelessWidget {
                 color: Colors.black54,
               ),
             ),
-
             Text(
               '$author',
               maxLines: 2,
@@ -340,13 +325,11 @@ class _ArticleDescription1 extends StatelessWidget {
     this.title,
     this.subtitle,
     this.author,
-
   }) : super(key: key);
 
   final String title;
   final String subtitle;
   final String author;
-
 
   @override
   Widget build(BuildContext context) {
@@ -381,27 +364,21 @@ class _ArticleDescription1 extends StatelessWidget {
   }
 }
 
-
-
 class CardItem extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
-    return
-      InkWell(
-        onTap: () {
-          Navigator.push(context ,MaterialPageRoute(
-              builder: (context) => Quiz()
-          ));
-        },
-        child: Padding(
-          padding: const EdgeInsets.only(left:30.0),
-          child: CustomListItemTwo1(
-            title: 'Aptitude',
-            subtitle:'Quiz Count :5',
-          ),
+    return InkWell(
+      onTap: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => Quiz()));
+      },
+      child: Padding(
+        padding: const EdgeInsets.only(left: 30.0),
+        child: CustomListItemTwo1(
+          title: 'Aptitude',
+          subtitle: 'Quiz Count :5',
         ),
-      );
+      ),
+    );
   }
 }
-
