@@ -20,6 +20,8 @@ class _QrCodeScanState extends State<QrCodeScan> {
       log.i(qrResult);
       setState(() {
         result = qrResult;
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => ButtonPage()));
       });
     } on PlatformException catch (ex) {
       if (ex.code == BarcodeScanner.CameraAccessDenied) {
@@ -51,21 +53,6 @@ class _QrCodeScanState extends State<QrCodeScan> {
       body: Center(
           child: Column(
         children: [
-          const SizedBox(height: 30),
-          RaisedButton(
-            onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => ButtonPage()));
-            },
-            textColor: Colors.white,
-            padding: const EdgeInsets.all(0.0),
-            child: Container(
-              color: Colors.blue,
-              padding: const EdgeInsets.all(10.0),
-              child: const Text('Go to button page',
-                  style: TextStyle(fontSize: 20)),
-            ),
-          ),
           const SizedBox(height: 30),
           RaisedButton(
             onPressed: _scanQR,
