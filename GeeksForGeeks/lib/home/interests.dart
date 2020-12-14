@@ -1,15 +1,32 @@
 import 'package:flutter/material.dart';
 
-class Interests extends StatelessWidget {
+class Interests extends StatefulWidget {
+  @override
+  Interest createState() => Interest();
+}
+
+class Interest extends State<Interests> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.green,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        title: Text(
+          "Select Your Interest",
+          style: TextStyle(color: Colors.white),
+        ),
+        backgroundColor: Colors.green,
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back_sharp,
+            color: Colors.white,
+          ),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
       ),
-      home: MyHomePage(title: 'Select Your Interest'),
+      body: MyHomePage(),
     );
   }
 }
@@ -66,33 +83,25 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
-          leading: IconButton(
-            icon: Icon(Icons.arrow_back_sharp),
-            onPressed: () {
-              Navigator.of(context, rootNavigator: true).pop(context);
-            },
-          ),
 
-
-
-        ),
-        floatingActionButton: FloatingActionButton(
-          // onPressed: _incrementCounter,
-          tooltip: 'Increment',
-          onPressed: () {},
-          child: Icon(Icons.check),
-        ),
-        body:SingleChildScrollView(child:
-        MultiSelectChip(
+      floatingActionButton: FloatingActionButton(
+        // onPressed: _incrementCounter,
+        backgroundColor: Colors.green,
+        tooltip: 'Increment',
+        onPressed: () {},
+        child: Icon(Icons.check),
+      ),
+      body: SingleChildScrollView(
+        child: MultiSelectChip(
           reportList,
           onSelectionChanged: (selectedList) {
             setState(() {
               selectedReportList = selectedList;
             });
           },
-        ),),);
+        ),
+      ),
+    );
   }
 }
 
