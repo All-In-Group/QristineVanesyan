@@ -17,15 +17,30 @@ class Question extends StatelessWidget {
       itemCount: 4,
       itemBuilder: (context, index) {
         return Column(
+
           children: [
-            Row(
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Image.asset(images[index]),
-                Text(
-                  answers[index + i],
-                  textAlign: TextAlign.left,
-                  style: TextStyle(fontSize: 18, color: Colors.black54),
-                ),
+                Image.asset(images[index],height: 50,fit: BoxFit.fitWidth,
+                  width: 50,),
+        new Container (
+        width: 340,
+        child: new Column (
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+        new Text (answers[index + i]),
+
+        ],
+        ),
+        ),
+           /*     Padding(
+                  padding: const EdgeInsets.only(left: 12.0),
+                  child: Text(
+                    answers[index + i],
+                    textAlign: TextAlign.left,
+                    style: TextStyle(fontSize: 18, color: Colors.black54),
+                  ),
+                ),*/
               ],
             ),
             Container(

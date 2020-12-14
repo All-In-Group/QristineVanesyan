@@ -12,30 +12,32 @@ List<String> categories = [
   "An unbalanced dice (with 6 faces, numbered from 1 to 6) is thrown. The probability that the face value is odd is 90% of the probability that the face value is even. The probability of getting any even numbered face is the same. If the probability that the face is even given that it is greater than 3 is 0.75, which one of the following options is closest to the probability that the face value exceeds 3?"
 ];
 List<String> answers = [
-  "A",
-  "B",
-  "C",
-  "D",
-  "E",
-  "F",
-  "G",
-  "H",
-  "I",
-  "J",
-  "K",
-  "L",
-  "M",
-  "N",
-  "O",
-  "P",
-  "Q",
-  "R",
-  "S",
-  "T",
-  "U",
-  "V",
-  "W",
-  "X",
+  /*1-1*/  "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+  /*1-2*/  "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+  /*1-3*/  "It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+  /*1-4*/  "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+  /*2-1*/  "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+  /*2-2*/  "It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+  /*2-3*/  "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+  /*2-4*/  "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+  /*3-1*/ "It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+  /*3-2*/  "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+  /*3-3*/  "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+  /*3-4*/  "It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+  /*4-1*/ "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+  /*4-2*/  "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+  /*4-3*/  "It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+  /*4-4*/  "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+  /*5-1*/  "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+  /*5-2*/  "It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+  /*5-3*/  "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+  /*5-4*/  "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+  /*6-1*/  "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+  /*6-2*/  "It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+  /*6-3*/  "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+  /*6-4*/  "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+ 
+
 ];
 List<int> ind = [
   0,
@@ -85,22 +87,24 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget>
       categories.length,
       (int index) {
         // print(categories[0]);
-        return new Container(
-          padding: const EdgeInsets.all(10.0),
-          child: Column(
-            children: [
-              new Text(
-                categories[index],
-                textAlign: TextAlign.left,
-                style: TextStyle(fontSize: 18, color: Colors.black54),
-              ),
-              Container(
-                child: Divider(
-                  color: Colors.black,
+        return SingleChildScrollView(
+          child: new Container(
+            padding: const EdgeInsets.all(10.0),
+            child: Column(
+              children: [
+                new Text(
+                  categories[index],
+                  textAlign: TextAlign.left,
+                  style: TextStyle(fontSize: 18, color: Colors.black54),
                 ),
-              ),
-              Question(i: ind[index]),
-            ],
+                Container(
+                  child: Divider(
+                    color: Colors.black,
+                  ),
+                ),
+                Question(i: ind[index]),
+              ],
+            ),
           ),
         );
       },
@@ -120,7 +124,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget>
         length: 6,
         child: Scaffold(
           appBar: AppBar(
-            automaticallyImplyLeading: false,
+          //  automaticallyImplyLeading: false,
             title: Text(_title),
             leading: IconButton(
               icon: Icon(Icons.arrow_back_sharp),
@@ -155,8 +159,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget>
                     ]),
                 preferredSize: Size.fromHeight(30.0)),
           ),
-          body: Container(
-            child: _widgetOptions.elementAt(_selectedIndex), //2
+          body:
+            Container(
+              child: _widgetOptions.elementAt(_selectedIndex), //2
           ),
         ));
   }
