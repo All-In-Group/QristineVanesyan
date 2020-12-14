@@ -47,7 +47,7 @@ class MyHomePage extends StatefulWidget {
 
 Future<FirstModel> FirstModel1(String login, String password) async {
   final String apiUrl = "https://reqres.in/api/users";
- /* final String apiUrl = "https://api.allin.am/kasir/coupon";*/
+  /* final String apiUrl = "https://api.allin.am/kasir/coupon";*/
   final response =
       await http.post(apiUrl, body: {"login": login, "password": password});
 
@@ -104,8 +104,6 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
       body: SingleChildScrollView(
@@ -137,11 +135,10 @@ class _MyHomePageState extends State<MyHomePage> {
           final String fname = fnameController.text;
           final String lname = lnameController.text;
 
-          print(login);
-          print(password);
           final FirstModel model1 = await FirstModel1(login, password);
           final SecondModel model2 = await SecondModel1(country, city);
           final ThirdModel model3 = await ThirdModel1(fname, lname);
+
           if (login != "" && password != "") {
             flag = 1;
           }
@@ -156,8 +153,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 context,
                 MaterialPageRoute(
                     builder: (context) => LoginPasswordPage(
-                        info: model1.toJson().toString() + ""
-                        )));
+                        info: model1.toJson().toString() + "")));
             setState(() {
               _model1 = model1;
             });
@@ -166,9 +162,8 @@ class _MyHomePageState extends State<MyHomePage> {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => CountyCityPage(
-                        info: model2.toJson().toString() + ""
-                        )));
+                    builder: (context) =>
+                        CountyCityPage(info: model2.toJson().toString() + "")));
             setState(() {
               _model2 = model2;
             });
@@ -177,9 +172,8 @@ class _MyHomePageState extends State<MyHomePage> {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => FnameLnamePage(
-                        info: model3.toJson().toString() + ""
-                        )));
+                    builder: (context) =>
+                        FnameLnamePage(info: model3.toJson().toString() + "")));
             setState(() {
               _model3 = model3;
             });
@@ -223,6 +217,7 @@ class _FirstButtonState extends State<FirstButton> {
                       controller1: loginController,
                       title2: "input password",
                       controller2: passwordController,
+                      ispass: true,
                     )
                   : Text('Open login password text fields')),
         ),
@@ -261,7 +256,9 @@ class _SecondButtonState extends State<SecondButton> {
                       title1: "input country",
                       controller1: countryController,
                       title2: "input city",
-                      controller2: cityController)
+                      controller2: cityController,
+                      ispass: false,
+                    )
                   : Text('Open country city text fields')),
         ),
       ],
@@ -299,7 +296,9 @@ class _ThirdButtonState extends State<ThirdButton> {
                       title1: "input first name",
                       controller1: fnameController,
                       title2: "input last name",
-                      controller2: lnameController)
+                      controller2: lnameController,
+                      ispass: false,
+                    )
                   : Text('Open first name city last name fields')),
         ),
       ],
@@ -314,12 +313,14 @@ class Fields extends StatelessWidget {
     this.controller1,
     this.title2,
     this.controller2,
+    this.ispass,
   }) : super(key: key);
 
   final TextEditingController controller1;
   final TextEditingController controller2;
   final String title1;
   final String title2;
+  final bool ispass;
 
   @override
   Widget build(BuildContext context) {
@@ -331,6 +332,7 @@ class Fields extends StatelessWidget {
         controller: controller1,
       ),
       TextField(
+        obscureText: ispass,
         decoration: InputDecoration(
           hintText: title2,
         ),
