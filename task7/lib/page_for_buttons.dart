@@ -204,7 +204,7 @@ class _SecondButtonState extends State<SecondButton> {
                       button: 2,
                     )
                   : Text('Open country city text fields')),
-        ),git 
+        ),
       ],
     );
   }
