@@ -62,7 +62,7 @@ Future<FirstModel> FirstModel1(String login, String password) async {
 
 Future<SecondModel> SecondModel1(String country, String city) async {
   final String apiUrl = "https://reqres.in/api/users";
-  /*final String apiUrl = "https://api.allin.am/kasir/bonus";*/
+/*  final String apiUrl = "https://api.allin.am/kasir/bonus";*/
 
   final response =
       await http.post(apiUrl, body: {"country": country, "city": city});
@@ -123,6 +123,64 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async {
+          final String login = loginController.text;
+          final String password = passwordController.text;
+
+          final String country = countryController.text;
+          final String city = cityController.text;
+
+          final String fname = fnameController.text;
+          final String lname = lnameController.text;
+
+          final FirstModel model1 = await FirstModel1(login, password);
+          final SecondModel model2 = await SecondModel1(country, city);
+          final ThirdModel model3 = await ThirdModel1(fname, lname);
+
+          if (login != "" && password != "") {
+            flag = 1;
+          }
+          if (country != "" && city != "") {
+            flag = 2;
+          }
+          if (fname != "" && lname != "") {
+            flag = 3;
+          }
+          if (flag == 1) {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => LoginPasswordPage(
+                        info: model1.toJson().toString() + "")));
+            setState(() {
+              _model1 = model1;
+            });
+          }
+          if (flag == 2) {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>
+                        CountyCityPage(info: model2.toJson().toString() + "")));
+            setState(() {
+              _model2 = model2;
+            });
+          }
+          if (flag == 3) {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>
+                        FnameLnamePage(info: model3.toJson().toString() + "")));
+            setState(() {
+              _model3 = model3;
+            });
+          }
+        },
+        tooltip: 'send post request',
+        child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
@@ -160,7 +218,6 @@ class _FirstButtonState extends State<FirstButton> {
                       title2: "input password",
                       controller2: passwordController,
                       ispass: true,
-                      button: 1,
                     )
                   : Text('Open login password text fields')),
         ),
@@ -201,10 +258,9 @@ class _SecondButtonState extends State<SecondButton> {
                       title2: "input city",
                       controller2: cityController,
                       ispass: false,
-                      button: 2,
                     )
                   : Text('Open country city text fields')),
-        ),git 
+        ),
       ],
     );
   }
@@ -242,7 +298,6 @@ class _ThirdButtonState extends State<ThirdButton> {
                       title2: "input last name",
                       controller2: lnameController,
                       ispass: false,
-                      button: 3,
                     )
                   : Text('Open first name city last name fields')),
         ),
@@ -259,7 +314,6 @@ class Fields extends StatelessWidget {
     this.title2,
     this.controller2,
     this.ispass,
-    this.button,
   }) : super(key: key);
 
   final TextEditingController controller1;
@@ -267,7 +321,6 @@ class Fields extends StatelessWidget {
   final String title1;
   final String title2;
   final bool ispass;
-  final int button;
 
   @override
   Widget build(BuildContext context) {
@@ -285,49 +338,6 @@ class Fields extends StatelessWidget {
         ),
         controller: controller2,
       ),
-      FlatButton(
-        padding: EdgeInsets.all(8.0),
-        onPressed: () async {
-          final String login = loginController.text;
-          final String password = passwordController.text;
-
-          final String country = countryController.text;
-          final String city = cityController.text;
-
-          final String fname = fnameController.text;
-          final String lname = lnameController.text;
-
-          final FirstModel model1 = await FirstModel1(login, password);
-          final SecondModel model2 = await SecondModel1(country, city);
-          final ThirdModel model3 = await ThirdModel1(fname, lname);
-
-          if (button==1) {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => LoginPasswordPage(
-                        info: model1.toJson().toString() + "")));
-          }
-          if (button==2) {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) =>
-                        CountyCityPage(info: model2.toJson().toString() + "")));
-          }
-          if (button==3) {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) =>
-                        FnameLnamePage(info: model3.toJson().toString() + "")));
-          }
-        },
-        child: Text(
-          "Send info",
-          style: TextStyle(fontSize: 20.0,color: Colors.white),
-        ),
-      )
     ]);
   }
 }

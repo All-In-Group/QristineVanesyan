@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'page_for_buttons.dart';
-import 'qrcode_scanner.dart';
+import 'package:task6/page_for_buttons.dart';
+import 'package:task6/qrcode_scanner.dart';
 
 void main() => runApp(MyApp());
 
