@@ -1,8 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:task5/home/tags.dart';
-
+import 'package:geekstask5task6/home/tags.dart';
 class Articles extends StatefulWidget {
   @override
   _FeedPageState createState() => _FeedPageState();

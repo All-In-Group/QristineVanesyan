@@ -1,8 +1,8 @@
 import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:task5/ArticlePages/Article.dart';
-import 'package:task5/home/tags.dart';
+import 'package:geekstask5task6/ArticlePages/Article.dart';
+import 'package:geekstask5task6/home/tags.dart';
 
 class FeedPage extends StatefulWidget {
   @override

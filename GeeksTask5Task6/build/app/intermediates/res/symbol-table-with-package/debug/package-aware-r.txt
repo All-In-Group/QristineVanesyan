@@ -1,4 +1,4 @@
-com.example.task5
+com.example.geekstask5task6
 attr alpha
 attr font
 attr fontProviderAuthority

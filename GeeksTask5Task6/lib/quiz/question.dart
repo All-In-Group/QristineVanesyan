@@ -1,7 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:task5/quiz/quiz.dart';
+import 'quiz.dart';
 
 // ignore: must_be_immutable
 class Question extends StatelessWidget {

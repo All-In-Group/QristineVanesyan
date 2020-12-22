@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:task5/my_class_icons.dart';
+
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'generated/l10n.dart';
 import 'mainPage.dart';
+import 'my_class_icons.dart';
 
 void main() {
   runApp(MyApp());

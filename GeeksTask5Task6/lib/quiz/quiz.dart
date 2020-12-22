@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:task5/generated/l10n.dart';
-import 'package:task5/quiz/question.dart';
+import 'package:geekstask5task6/generated/l10n.dart';
+
+
+import 'question.dart';
 
 const String _title = 'Probability';
 List<String> categories = [
@@ -288,3 +290,4 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget>
     );
   }
 }
+
