@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:geekstask5task6/generated/l10n.dart';
 import 'package:geekstask5task6/home/tags.dart';
 
 
@@ -27,7 +28,7 @@ class _FeedPageState extends State<Articles> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(
-          "Feed Articles",
+          S.of(context).feedArticles,
           style: TextStyle(color: Colors.black),
         ),
         backgroundColor: Colors.white,

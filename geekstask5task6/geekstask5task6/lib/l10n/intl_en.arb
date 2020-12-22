@@ -33,5 +33,18 @@
   "All": "All",
   "Interview":"Interview",
 
-  "Question": "Question"
+  "Question": "Question",
+
+  "todo": "TODO",
+  "done": "DONE",
+
+  "select": "Select Your Interest",
+  "offline": "Offline Articles",
+  "algorithms": "Algorithms",
+  "feedArticles": "Feed Articles",
+  "todomessage1": "No more Articles in Todo",
+  "donemessage": "No Done Articles",
+  "todomessage2": "Swipe to refresh",
+  "offlinemessage": "No Downloads Here"
+
 }

@@ -34,5 +34,17 @@
   "All": "Все",
   "Interview":"Интервью",
 
-  "Question": "Вопрос"
+  "Question": "Вопрос",
+
+  "todo": "Сделать",
+  "done": "Сделано",
+
+  "select": "Выбери свои интерес",
+  "offline": "Статьи оффлайн",
+  "algorithms": "Алгоритмы",
+  "feedArticles": "Лента статей",
+  "todomessage1": "Больше нет статей",
+  "donemessage": "Нет готовых статей",
+  "todomessage2": "Проведите, чтобы обновить",
+  "offlinemessage": "Нет загрузок"
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:geekstask5task6/generated/l10n.dart';
 
 class Interests extends StatefulWidget {
   @override
@@ -12,7 +13,7 @@ class Interest extends State<Interests> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(
-          "Select Your Interest",
+          S.of(context).select,
           style: TextStyle(color: Colors.white),
         ),
         backgroundColor: Colors.green,
@@ -83,7 +84,6 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       floatingActionButton: FloatingActionButton(
         // onPressed: _incrementCounter,
         backgroundColor: Colors.green,

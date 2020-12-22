@@ -23,6 +23,7 @@ List<IconData> menuIcon = [
 ];
 
 class MainPage extends StatelessWidget {
+  AppLocalizationDelegate _localeOverrideDelegate =  AppLocalizationDelegate();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -30,10 +31,11 @@ class MainPage extends StatelessWidget {
           S.delegate,
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
-        ],
-        supportedLocales: [
-          const Locale('ru', 'RU')
-        ],
+          _localeOverrideDelegate
+        ], supportedLocales: [
+      const Locale('en', 'US'),
+      const Locale('ru', 'RU')
+    ],
         color: Colors.grey,
         title: _title,
         theme: ThemeData(

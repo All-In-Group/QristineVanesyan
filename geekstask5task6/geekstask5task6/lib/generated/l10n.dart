@@ -324,6 +324,106 @@ class S {
       args: [],
     );
   }
+
+  /// `TODO`
+  String get todo {
+    return Intl.message(
+      'TODO',
+      name: 'todo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `DONE`
+  String get done {
+    return Intl.message(
+      'DONE',
+      name: 'done',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select Your Interest`
+  String get select {
+    return Intl.message(
+      'Select Your Interest',
+      name: 'select',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Offline Articles`
+  String get offline {
+    return Intl.message(
+      'Offline Articles',
+      name: 'offline',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Algorithms`
+  String get algorithms {
+    return Intl.message(
+      'Algorithms',
+      name: 'algorithms',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Feed Articles`
+  String get feedArticles {
+    return Intl.message(
+      'Feed Articles',
+      name: 'feedArticles',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No more Articles in Todo`
+  String get todomessage1 {
+    return Intl.message(
+      'No more Articles in Todo',
+      name: 'todomessage1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No Done Articles`
+  String get donemessage {
+    return Intl.message(
+      'No Done Articles',
+      name: 'donemessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Swipe to refresh`
+  String get todomessage2 {
+    return Intl.message(
+      'Swipe to refresh',
+      name: 'todomessage2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No Downloads Here`
+  String get offlinemessage {
+    return Intl.message(
+      'No Downloads Here',
+      name: 'offlinemessage',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

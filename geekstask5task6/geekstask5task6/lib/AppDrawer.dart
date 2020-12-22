@@ -1,13 +1,22 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:geekstask5task6/login.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'generated/l10n.dart';
+import 'home/Settings.dart';
 import 'home/interests.dart';
+import 'home/offlineArticles.dart';
+import 'home/todo.dart';
 
 class AppDrawer extends StatelessWidget {
 
   List list = [
     Interests(),
+    ToDo(),
+    OfflineArticles(),
+    null,
+    null,
+    Settings(),
   ];
   List<String> selectedReportList = List();
   String email = "support@geeksforgeeks.org";
