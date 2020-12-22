@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d8aca428-bf24-4524-8bb4-8421c162ac18" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2500" y="184" key="FileChooserDialogImpl" timestamp="1608628658309">
+      <screen x="1920" y="0" width="1600" height="860" />
+    </state>
+    <state x="2500" y="184" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1600.860@1920.0.1600.860" timestamp="1608628658309" />
+    <state width="1555" height="221" key="GridCell.Tab.0.bottom" timestamp="1608628708069">
+      <screen x="1920" y="0" width="1600" height="860" />
+    </state>
+    <state width="1555" height="221" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1600.860@1920.0.1600.860" timestamp="1608628708069" />
+    <state width="1555" height="221" key="GridCell.Tab.0.center" timestamp="1608628708068">
+      <screen x="1920" y="0" width="1600" height="860" />
+    </state>
+    <state width="1555" height="221" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1600.860@1920.0.1600.860" timestamp="1608628708068" />
+    <state width="1555" height="221" key="GridCell.Tab.0.left" timestamp="1608628708067">
+      <screen x="1920" y="0" width="1600" height="860" />
+    </state>
+    <state width="1555" height="221" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1600.860@1920.0.1600.860" timestamp="1608628708067" />
+    <state width="1555" height="221" key="GridCell.Tab.0.right" timestamp="1608628708068">
+      <screen x="1920" y="0" width="1600" height="860" />
+    </state>
+    <state width="1555" height="221" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1600.860@1920.0.1600.860" timestamp="1608628708068" />
+  </component>
+</project>
